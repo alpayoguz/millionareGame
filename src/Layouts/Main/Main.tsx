@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+import "./Main.css"
 
-const Main = () => {
+interface Props{
+    children:ReactNode
+}
+const Main:React.FC<Props> = ({children}) => {
   return (
     <div className='main'>
-
+     {children}
     </div>
   )
 }

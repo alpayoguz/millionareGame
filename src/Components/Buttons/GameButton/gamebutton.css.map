@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAA;EAGR,KAAK,EAAE,IAAI;EACX,cAAc,EAAE,KAAK;EACrB,WAAW,EAAE,GAAG;EAChB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,SAAS,EAAE,IAAI;EACf,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,iBAAiB;CAO5B;;AAjBD,AAYI,YAZQ,AAYP,MAAM,CAAA;EACH,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "gamebutton.scss"
+    ],
+    "names": [],
+    "file": "gamebutton.css"
+}

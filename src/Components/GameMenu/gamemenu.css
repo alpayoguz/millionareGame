@@ -1,0 +1,46 @@
+.game-menu {
+  width: 200px;
+  min-height: 100px;
+  margin: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.game-menu__login {
+  cursor: pointer;
+  border: 1px solid white;
+  padding: 9px 12px;
+  border-radius: 3px;
+  width: 200px;
+  height: 50px;
+}
+
+.game-menu__login button {
+  margin-left: 7px;
+}
+
+.game-menu__login:hover {
+  background-color: #4285F4;
+}
+
+.game-menu__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 200px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=gamemenu.css.map */
