@@ -3,7 +3,7 @@ import "./question.css"
 import { db } from '../../Firebase/auth'
 import { collection, where, query, getDocs } from "firebase/firestore"
 
-
+// deneme 123
 
 const Question: React.FC = () => {
 
