@@ -1,22 +1,11 @@
 import React from 'react'
 import "./question.css"
 import { db } from '../../Firebase/auth'
-import { doc, getDoc } from "firebase/firestore"
+import { collection, where, query, getDocs } from "firebase/firestore"
+
+
 
 const Question: React.FC = () => {
-
-    async function getDatabase() {
-        const docRef = doc(db, "questions", "deneme")
-        const docSnap = await getDoc(docRef)
-        if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
-          } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-          }
-    }
-    getDatabase();
-
 
     return (
         <>
