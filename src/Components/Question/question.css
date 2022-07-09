@@ -51,4 +51,9 @@
   border-radius: 100px;
   padding: 5px 2px;
 }
+
+.question__choice span {
+  color: orange;
+  font-weight: 600;
+}
 /*# sourceMappingURL=question.css.map */
