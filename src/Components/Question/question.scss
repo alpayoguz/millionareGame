@@ -1,0 +1,42 @@
+.question{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__main{
+        width: 80%;
+        min-height: 250px;
+    
+    }
+    &__header{
+        background-color: black;
+        border: 1px solid blue;
+        border-radius: 100px;
+        & p{
+            font-family: "roboto";
+            font-weight:600 ;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0px;
+            font-size: 15px;
+        }
+    }
+    &__choices{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2px;
+        row-gap: 5px;
+        padding: 20px 0px;
+    }
+    &__choice{
+        text-align: center;
+        color: white;
+        border: 1px solid blue;
+        background-color: black;
+        border-radius: 100px;
+        padding: 5px 2px;
+
+    }
+}
