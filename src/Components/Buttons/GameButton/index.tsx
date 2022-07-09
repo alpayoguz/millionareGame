@@ -2,8 +2,6 @@ import React from 'react'
 import "./gamebutton.css"
 interface Props{
     buttonName: string;
-
-   
 }
 
 const PlayButton:React.FC<Props> = ({buttonName}) => {
