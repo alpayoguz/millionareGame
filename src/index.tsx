@@ -5,6 +5,9 @@ import Question from './Components/Question';
 import Main from './Layouts/Main/Main';
 
 import App from './App';
+import InGameContent from './pages/InGameContent/index';
+import store from './app/store';
+import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(
@@ -12,9 +15,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <App />
-  <Main>
-     <Question/>
-  </Main>
- 
+  <Provider store={store}>
+    <Main>
+      <InGameContent />
+    </Main>
+  </Provider>
+
+
 );
 
