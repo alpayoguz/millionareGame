@@ -68,12 +68,16 @@
   color: white;
 }
 
-.active-choice {
+.question__selected {
   background-color: orange !important;
   color: #fff !important;
 }
 
-.active-choice span {
+.question__selected span {
   color: #fff !important;
+}
+
+.question__correct {
+  background-color: #13b913;
 }
 /*# sourceMappingURL=question.css.map */

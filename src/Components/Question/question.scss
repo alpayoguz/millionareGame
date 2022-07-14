@@ -56,12 +56,15 @@
        
 
     }
+    &__selected{
+        background-color: orange !important;
+        color: #fff !important;
+    }
+    &__selected span{
+        color:#fff !important
+    }
+    &__correct{
+        background-color: #13b913;
+    }
 }
 
-.active-choice{
-  background-color: orange !important;
-  color: #fff !important;
-}
-.active-choice span{
-    color:#fff !important
-}
