@@ -9,49 +9,55 @@ import { useState } from 'react'
 // deneme 123
 
 const Question: React.FC = () => {
-    const questions:any = useSelector<any>((state) => state.questions.questions)
+    const questions: any = useSelector<any>((state) => state.questions.questions)
     const dispatch = useDispatch<AppDispatch>()
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0)
     console.log("question", questions[currentQuestionNumber])
     const [currentQuestion, setCurrentQuestion] = useState<any>(questions[currentQuestionNumber])
     console.log("currentQuestion", currentQuestion)
-    const { question, answer,  id, choices, isAnswered } = currentQuestion || {}
- 
+    let { question, answer, id, choices, isAnswered } = currentQuestion || {}
+    question = question?.charAt(0).toUpperCase() + question?.slice(1)
+    // const [choice1, choice2, choice3, choice4] = choices?.map((chc: string) => chc.charAt(0).toUpperCase() + chc.slice(1)) || []
+    // console.log(choice1);
+    const letters = ["A", "B", "C", "D"];
 
-    
 
-    useEffect(()=>{
-        dispatch(fetchQuestions())
-        
-    }, [])
-    
-    useEffect(()=>{
-        setCurrentQuestion(questions[currentQuestionNumber])
-    }, [currentQuestionNumber, questions])
-    
-    
-    const numaraArttir = ()=>{
-        setCurrentQuestionNumber(prevVal => prevVal + 1)
+    const onChoiceSelect = (event: any)=>{
+        event.target!.classList.add("active-choice")
+        setTimeout(()=>{
+            let spanText = event.target.querySelector("span").innerText
+            spanText = spanText.charAt(0).toLowerCase() + spanText.slice(1); 
+            if(spanText === answer){
+                setCurrentQuestionNumber(prevVal => prevVal + 1);
+            }
+            
+        }, 3000)
     }
 
+    useEffect(() => {
+        dispatch(fetchQuestions())
+
+    }, [])
+
+    useEffect(() => {
+        setCurrentQuestion(questions[currentQuestionNumber])
+    }, [currentQuestionNumber, questions])
     return (
         <>
             <div className='question'>
                 <div className='question__main'>
                     <div className='question__header'>
-                        <p className=''>{question && question}</p>
+                        <p className=''>{question && question} ?</p>
                     </div>
                     <div className='question__choices'>
-                        <div className='question__choice'><span>A:</span> {choices && choices[0] }</div>
-                        <div className='question__choice'><span>B:</span> {choices && choices[1]}</div>
-                        <div className='question__choice'><span>C:</span> {choices && choices[2]}</div>
-                        <div className='question__choice'><span>D:</span> {choices && choices[3]}</div>
+                        {choices?.map((choice: string, index: number) => {
+                            choice = choice.charAt(0).toUpperCase() + choice.slice(1);
+                           return <div onClick={(event:any)=> { onChoiceSelect(event)}} key={index} className='question__choice'>{letters[index]}: <span>{choice}</span> </div>
+                        }
+                        )}
 
                     </div>
-
-
                 </div>
-                <button onClick={numaraArttir}>Degistir</button>
 
             </div>
         </>

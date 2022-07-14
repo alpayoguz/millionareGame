@@ -45,15 +45,35 @@
 
 .question__choice {
   text-align: center;
-  color: white;
+  color: orange;
   border: 1px solid blue;
   background-color: black;
   border-radius: 100px;
   padding: 5px 2px;
+  font-weight: 500;
+}
+
+.question__choice:hover {
+  background-color: white;
+  color: orange;
+  cursor: pointer;
+}
+
+.question__choice:hover span {
+  color: black;
 }
 
 .question__choice span {
-  color: orange;
   font-weight: 600;
+  color: white;
+}
+
+.active-choice {
+  background-color: orange !important;
+  color: #fff !important;
+}
+
+.active-choice span {
+  color: #fff !important;
 }
 /*# sourceMappingURL=question.css.map */
