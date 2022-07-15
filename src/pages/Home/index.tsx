@@ -1,6 +1,6 @@
 import "./home.css"
-import GameButton from "../../Components/Buttons/GameButton"
-import GameMenu from "../../Components/GameMenu/index"
+import GameButton from "../../components/Buttons/GameButton"
+import GameMenu from "../../components/GameMenu/index"
 const Home = () => {
     return (
         <>

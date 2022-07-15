@@ -1,6 +1,5 @@
-import Home from "./pages/Home";
-import Main from "./Layouts/Main/Main";
-import GameButton from "./Components/Buttons/GameButton";
+import Home from "./pages/home";
+import Main from "./layouts/main/Main";
 
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
     <>
     <Main>
      <Home/>
-    
     </Main>
     
     

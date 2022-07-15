@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./index.css"
-import Question from './Components/Question';
-import Main from './Layouts/Main/Main';
+import Question from './components/Question';
+import Main from './layouts/main/Main';
 import App from './App';
-import InGameContent from './pages/InGameContent/index';
+import InGameContent from './pages/ınGameContent/index';
 import store from './app/store';
 import { Provider } from 'react-redux';
+import Home from './pages/home';
 
 
 const root = ReactDOM.createRoot(
@@ -16,7 +17,7 @@ root.render(
   // <App />
   <Provider store={store}>
     <Main>
-      <InGameContent />
+      <Home/>
     </Main>
   </Provider>
 

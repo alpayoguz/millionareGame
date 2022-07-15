@@ -2,11 +2,12 @@ import React from 'react'
 import "./gamebutton.css"
 interface Props{
     buttonName: string;
+    buttonFunc?: ()=> void;
 }
 
-const PlayButton:React.FC<Props> = ({buttonName}) => {
+const PlayButton:React.FC<Props> = ({buttonName, buttonFunc}) => {
     return (
-        <button className={`game-button`}>{buttonName}</button>
+        <button onClick={()=>{buttonFunc?.()}} className={`game-button`}>{buttonName}</button>
     )
 }
 

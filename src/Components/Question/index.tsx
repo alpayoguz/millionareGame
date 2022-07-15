@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import "./question.css"
 import { useState } from 'react'
-import { QuestionArray } from "../../pages/InGameContent"
+import { QuestionArray } from "../../pages/ınGameContent"
 import { makeFirstLetterBig, makeFirstLetterSmall } from "../../utils"
 import { letters } from "../../utils/index"
 
@@ -34,7 +34,6 @@ const Question: React.FC<Props> = ({ questions }) => {
                 }, 2000)
 
             }
-
         }, 3000)
     }
 
