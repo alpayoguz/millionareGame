@@ -8,6 +8,7 @@ import InGameContent from './pages/ınGameContent/index';
 import store from './app/store';
 import { Provider } from 'react-redux';
 import Home from './pages/home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(
@@ -15,11 +16,19 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <App />
-  <Provider store={store}>
-    <Main>
-      <Home/>
-    </Main>
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+
+      <Main>
+        <Routes>
+          <Route path='' element={<Home />}/>
+          <Route path='inGameContent' element={<InGameContent/>}/>
+        </Routes>
+
+      </Main>
+    </Provider>
+  </BrowserRouter>
+
 
 
 );

@@ -5,9 +5,9 @@ interface Props{
     buttonFunc?: ()=> void;
 }
 
-const PlayButton:React.FC<Props> = ({buttonName, buttonFunc}) => {
+const PlayButton:React.FC<Props> = ({buttonName, buttonFunc, ...props}) => {
     return (
-        <button onClick={()=>{buttonFunc?.()}} className={`game-button`}>{buttonName}</button>
+        <button onClick={buttonFunc} className={`game-button`}>{buttonName}</button>
     )
 }
 
