@@ -20,27 +20,11 @@ const GameMenu: React.FC = () => {
   const isInputHidden = useSelector((state: any) => state.guestInput.isInputHidden)
 
 
-  function focusInput() {
-    if (inputRef.current) {
-      inputRef.current.focus()
-      inputRef.current.select();
-    }
-  }
-
   const handlePlayAsGuest = (): void => {
     dispatch(guestInputActions.changeInputState());
     setRandomUser(createRandomGuest())
-    delayFunc(100, focusInput)
-
-
-
-
-
-
+    delayFunc(100, ()=>{focusElementOnClick(inputRef.current)})
   }
-
-
-
   return (
     <>
       <div className='game-menu'>
@@ -60,5 +44,4 @@ const GameMenu: React.FC = () => {
     </>
   )
 }
-
 export default GameMenu
