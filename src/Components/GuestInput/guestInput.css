@@ -46,6 +46,11 @@
   border-radius: 5%;
 }
 
+.guest-input__error {
+  position: absolute;
+  top: 120%;
+}
+
 .guest-input--expand {
   display: -webkit-box;
   display: -ms-flexbox;

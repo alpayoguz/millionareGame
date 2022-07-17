@@ -23,7 +23,10 @@ const GameMenu: React.FC = () => {
   const handlePlayAsGuest = (): void => {
     dispatch(guestInputActions.changeInputState());
     setRandomUser(createRandomGuest())
-    delayFunc(100, ()=>{focusElementOnClick(inputRef.current)})
+    if(isInputHidden){
+      delayFunc(100, ()=>{focusElementOnClick(inputRef.current)}) // Nasıl çözülür acaba ? Normalde false iken olması lazım
+    }
+   
   }
   return (
     <>
