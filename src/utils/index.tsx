@@ -24,7 +24,6 @@ export const createRandomGuest = ():string=>{
 export const focusElementOnClick = (e: any): void => {
     
     if(e){
-        console.log("e", e.value);
         e.focus();
         e.select();
     }
@@ -62,4 +61,5 @@ export const userNameValidation = (a:string):LoginObj=>{
 
 
 }
+
 export const letters = ["A", "B", "C", "D"];

@@ -6,7 +6,10 @@ import { guestInputActions } from '../../features/guestInputSlice';
 import { focusElementOnClick, delayFunc, userNameValidation } from '../../utils';
 import { useNavigate } from "react-router-dom";
 import { Alert } from '@mui/material';
-import {userLoginActions} from '../../features/userLoginSice';
+import { userLoginActions } from '../../features/userLoginSice';
+import { fetchUsers } from '../../features/usersSlice';
+import { AppDispatch } from '../../app/store';
+import { User } from "../../features/usersSlice"
 
 
 
@@ -19,22 +22,46 @@ interface Props {
   inputRef: any
 }
 const GuestInput: React.FC<Props> = ({ randomUser, focusElement, inputRef }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+  const isInitialRender = useRef(true);
   const navigate = useNavigate();
   const isInputHidden = useSelector((state: any) => state.guestInput.isInputHidden)
+  const users = useSelector((state: any) => state.users.users)
   const inputValue = useSelector((state: any) => state.guestInput.inputValue)
-  const validationObject = useSelector((state:any) => state.userLogin) 
+  const { loginStatus, errorMessage } = useSelector((state: any) => state.userLogin)
   useEffect(() => {
     dispatch(guestInputActions.changeInputValue(randomUser))
+    dispatch(fetchUsers())
 
   }, [randomUser])
 
-  console.log(inputValue)
+  useEffect(() => {
+    if (isInitialRender.current) {
+      isInitialRender.current = false
+    } else {
+      goIfUserNameValid();
+      
+    }
+
+  }, [loginStatus])
+
   const handleGuestLogin = (): void => {
-    dispatch(userLoginActions.checkUserName(inputValue))
-    if (validationObject.loginStatus) {
+    if (users) {
+      const existUser = users.find((user: User) => user.username === inputValue)
+      if (existUser) {
+        dispatch(userLoginActions.setLoginStatus(false))
+        dispatch(userLoginActions.setErrorMessage("This username already exists!"))
+        return
+      }else {
+        dispatch(userLoginActions.checkUserName(inputValue))
+      }
+     
+    }
+  }
+  function goIfUserNameValid(){
+    if(loginStatus){
       navigate("inGameContent")
-    } 
+    }
   }
 
   return (
@@ -44,7 +71,7 @@ const GuestInput: React.FC<Props> = ({ randomUser, focusElement, inputRef }) => 
 
         <input required onChange={(event) => { dispatch(guestInputActions.changeInputValue(event.target.value)) }} className='guest-input__input' type="text" placeholder='nickname...' value={inputValue} ref={inputRef} />
         <button onClick={handleGuestLogin} className='guest-input__button'>OK</button>
-        {validationObject.errorMessage && <Alert className='guest-input__error' severity='error'>{validationObject.errorMessage}</Alert> } 
+        {errorMessage && <Alert className='guest-input__error' severity='error'>{errorMessage}</Alert>}
       </div>
     </>
   )

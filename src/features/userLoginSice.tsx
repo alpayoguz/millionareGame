@@ -31,6 +31,12 @@ const userLoginSlice = createSlice({
                  state.loginStatus= true;
                   state.errorMessage=""; 
             }
+        },
+        setErrorMessage: (state, action)=>{
+            state.errorMessage = action.payload
+        },
+        setLoginStatus: (state, action)=>{
+            state.loginStatus = action.payload
         }
     }
 })
