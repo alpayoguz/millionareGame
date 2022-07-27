@@ -1,6 +1,8 @@
 import "./home.css"
 import GameButton from "../../components/Buttons/GameButton"
 import GameMenu from "../../components/GameMenu/index"
+
+
 const Home = () => {
     return (
         <>
@@ -10,7 +12,7 @@ const Home = () => {
                 </h1>
                 <GameMenu/>
             </div>
-
+            <audio src="/sounds/lets play.mp3" autoPlay></audio>
         </>
 
 

@@ -1,3 +1,13 @@
+export interface QuestionObject{
+    id:number;
+    answer:string;
+    question:string;
+    choices:[string, string, string, string];
+    isAnswered:boolean
+}
+
+
+
 export const makeFirstLetterBig = (a:string):string=>{
     return a?.charAt(0).toUpperCase() + a?.slice(1)
 

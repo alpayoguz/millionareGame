@@ -6,18 +6,19 @@ import { db } from '../../firebase/auth';
 import {fetchQuestions} from "../../features/questionsSlice"
 import { useSelector, useDispatch } from 'react-redux'
 import { AppDispatch } from '../../app/store';
+import { QuestionObject } from '../../utils';
 
- export interface QuestionArray{
-    id:number;
-    answer:string;
-    question:string;
-    choices:[string, string, string, string];
-    isAnswered:boolean
-}
+//  export interface Question{
+//     id:number;
+//     answer:string;
+//     question:string;
+//     choices:[string, string, string, string];
+//     isAnswered:boolean
+// }
 
 const InGameContent = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const questions:Array<QuestionArray> = useSelector((state:any) => state.questions.questions)
+  const questions:Array<QuestionObject> = useSelector((state:any) => state.questions.questions)
 
   useEffect(()=>{
     dispatch(fetchQuestions())

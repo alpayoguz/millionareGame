@@ -67,8 +67,6 @@ const GuestInput: React.FC<Props> = ({ randomUser, focusElement, inputRef }) => 
   return (
     <>
       <div className={`guest-input ${!isInputHidden && "guest-input--expand"}`}>
-
-
         <input required onChange={(event) => { dispatch(guestInputActions.changeInputValue(event.target.value)) }} className='guest-input__input' type="text" placeholder='nickname...' value={inputValue} ref={inputRef} />
         <button onClick={handleGuestLogin} className='guest-input__button'>OK</button>
         {errorMessage && <Alert className='guest-input__error' severity='error'>{errorMessage}</Alert>}
