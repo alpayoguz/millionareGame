@@ -1,9 +1,13 @@
 import "./home.css"
 import GameButton from "../../components/Buttons/GameButton"
 import GameMenu from "../../components/GameMenu/index"
+import Sound from "react-sound"
+import { useEffect, useRef, useState } from "react"
 
+    
 
 const Home = () => {
+    
     return (
         <>
             <div className='homepage'>
@@ -11,8 +15,9 @@ const Home = () => {
                     WHO WANTS TO BE MILLIONARE ?
                 </h1>
                 <GameMenu/>
+               
             </div>
-            <audio src="/sounds/lets play.mp3" autoPlay></audio>
+          
         </>
 
 

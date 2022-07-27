@@ -21,8 +21,8 @@ const Question: React.FC<Props> = ({ questions }) => {
 
     const onChoiceSelect = (event: any) => {
         event.target!.classList.add("question__selected")
-        let spanText = event.target.querySelector("span").innerText
-        spanText = makeFirstLetterSmall(spanText);
+        let spanText = makeFirstLetterBig(event.target.querySelector("span").innerText) 
+        // spanText = makeFirstLetterSmall(spanText);
         setTimeout(() => {
             if (spanText === answer) {
                 event.target.classList.remove("question__selected");

@@ -29,6 +29,7 @@ const GuestInput: React.FC<Props> = ({ randomUser, focusElement, inputRef }) => 
   const users = useSelector((state: any) => state.users.users)
   const inputValue = useSelector((state: any) => state.guestInput.inputValue)
   const { loginStatus, errorMessage } = useSelector((state: any) => state.userLogin)
+  const [initialAudio] = useState(new Audio("/sounds/lets play.mp3"))
   useEffect(() => {
     dispatch(guestInputActions.changeInputValue(randomUser))
     dispatch(fetchUsers())
@@ -54,6 +55,8 @@ const GuestInput: React.FC<Props> = ({ randomUser, focusElement, inputRef }) => 
         return
       }else {
         dispatch(userLoginActions.checkUserName(inputValue))
+        playStartingMusic();
+       
       }
      
     }
@@ -64,6 +67,10 @@ const GuestInput: React.FC<Props> = ({ randomUser, focusElement, inputRef }) => 
     }
   }
 
+  function playStartingMusic(){
+    initialAudio.play();
+    delayFunc(4500, ()=>{initialAudio.pause()})
+  }
   return (
     <>
       <div className={`guest-input ${!isInputHidden && "guest-input--expand"}`}>
